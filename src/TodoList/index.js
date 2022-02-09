@@ -8,11 +8,12 @@ function TodoList( props ){
             {props.error && props.onError()}
             {props.loading && props.onLoading()}
 
-            { (!props.loading && !props.totalTodos) && props.onEmptyTodos() }
+            { (!props.loading && !props.totalTodos ) && props.onEmptyTodos() }
 
             {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResults(props.searchText)}
 
-            { props.searchedTodos.map( renderFunc )} {//todo => props.render(todo)
+            { (props.sincronizeTodos && !props.loading) 
+                && props.searchedTodos.map( renderFunc )} {//todo => props.render(todo)
             }
 
             <ul>
